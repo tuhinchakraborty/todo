@@ -15,9 +15,7 @@ class App extends Component {
             </Typography>
           </Toolbar>
         </AppBar>
-        <ToDo checked = {true} text = {'First Text'}/>
-        <ToDo checked = {false} text = {'Second Text'}/>
-        <ToDo checked = {true} text = {'Third Text'}/>
+        <ToDo feature={{ checked: true, text: 'One Text' }} />
       </div>
     );
   }
