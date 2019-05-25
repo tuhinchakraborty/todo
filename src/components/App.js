@@ -6,6 +6,8 @@ import todosData from '../todosData';
 
 class App extends Component {
   render() {
+    const todos = todosData.map(content => <ToDo key={content.id} checked={content.completed} text={content.text} />);
+
     return (
       <div>
         <AppBar position="static" color="primary">
@@ -15,7 +17,7 @@ class App extends Component {
             </Typography>
           </Toolbar>
         </AppBar>
-        <ToDo feature={{ checked: true, text: 'One Text' }} />
+        {todos}
       </div>
     );
   }
