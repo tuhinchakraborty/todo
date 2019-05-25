@@ -5,8 +5,15 @@ import { AppBar, Toolbar, Typography } from '@material-ui/core';
 import todosData from '../todosData';
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      todos: todosData
+    };
+  }
+
   render() {
-    const todos = todosData.map(content => <ToDo key={content.id} content={content} />);
+    const todos = this.state.todos.map(content => <ToDo key={content.id} content={content} />);
 
     return (
       <div>
