@@ -1,0 +1,6 @@
+.navbar {
+    background-color: grey;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
