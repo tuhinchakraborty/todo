@@ -6,8 +6,8 @@ class ToDo extends Component {
   render() {
     return (
       <div style={{ display: 'flex', flexWrap: 'wrap', flexDirection: 'row' }}>
-        <Checkbox color="primary" checked={this.props.checked} />
-        <TextField id="outlined-bare" placeholder={this.props.text} margin="normal" variant="outlined" />
+        <Checkbox color="primary" checked={this.props.content.completed} />
+        <TextField id="outlined-bare" placeholder={this.props.content.text} margin="normal" variant="outlined" />
       </div>
     );
   }

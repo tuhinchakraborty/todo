@@ -6,7 +6,7 @@ import todosData from '../todosData';
 
 class App extends Component {
   render() {
-    const todos = todosData.map(content => <ToDo key={content.id} checked={content.completed} text={content.text} />);
+    const todos = todosData.map(content => <ToDo key={content.id} content={content} />);
 
     return (
       <div>
