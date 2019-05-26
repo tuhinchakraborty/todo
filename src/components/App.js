@@ -1,8 +1,24 @@
 import React, { Component } from 'react';
 import './../styles.css';
 import ToDo from './ToDo';
-import { AppBar, Toolbar, Typography } from '@material-ui/core';
+import { AppBar, Toolbar, Typography, Fab } from '@material-ui/core';
+import AddIcon from '@material-ui/icons/Add';
 import todosData from '../todosData';
+
+const addButtonStyle = {
+  margin: 0,
+  top: 'auto',
+  right: 20,
+  bottom: 20,
+  left: 'auto',
+  position: 'fixed',
+  backgroundColor: '#424242',
+  color: '#fafafa'
+};
+
+const appbarStyle = {
+  backgroundColor: '#424242',
+};
 
 class App extends Component {
   constructor() {
@@ -34,14 +50,17 @@ class App extends Component {
 
     return (
       <div>
-        <AppBar position="static" color="primary">
+        <AppBar style={appbarStyle} position="static">
           <Toolbar variant="dense">
-            <Typography variant="h6" color="textPrimary">
+            <Typography color="inherit" variant="title">
               ToDo
             </Typography>
           </Toolbar>
         </AppBar>
         {todos}
+        <Fab style={addButtonStyle}>
+          <AddIcon />
+        </Fab>
       </div>
     );
   }
