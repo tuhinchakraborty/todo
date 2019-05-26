@@ -19,6 +19,7 @@
 .env.production.local
 .iml
 .idea
+.gitignore
 
 npm-debug.log*
 yarn-debug.log*
