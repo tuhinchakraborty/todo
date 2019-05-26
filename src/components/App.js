@@ -13,7 +13,7 @@ const addButtonStyle = {
   left: 'auto',
   position: 'fixed',
   backgroundColor: '#424242',
-  color: '#fafafa'
+  color: '#fafafa',
 };
 
 const appbarStyle = {
@@ -51,7 +51,7 @@ class App extends Component {
     return (
       <div>
         <AppBar style={appbarStyle} position="static">
-          <Toolbar variant="dense">
+          <Toolbar variant="dense" style={{ justifyContent: 'center' }}>
             <Typography color="inherit" variant="title">
               ToDo
             </Typography>
