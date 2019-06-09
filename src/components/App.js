@@ -13,11 +13,11 @@ const addButtonStyle = {
   left: 'auto',
   position: 'fixed',
   backgroundColor: '#424242',
-  color: '#fafafa',
+  color: '#fafafa'
 };
 
 const appbarStyle = {
-  backgroundColor: '#424242',
+  backgroundColor: '#424242'
 };
 
 class App extends Component {
@@ -31,17 +31,15 @@ class App extends Component {
 
   handleChange(id) {
     this.setState(prevState => {
-      const updatedTodos = this.updateTodos(prevState, id);
+      const updatedTodos = prevState.todos.map(todo => {
+        if (todo.id === id) {
+          todo.completed = !todo.completed;
+        }
+        return todo;
+      });
       return {
         todos: updatedTodos
       };
-    });
-  }
-
-  updateTodos(prevState, id) {
-    return prevState.todos.map(todo => {
-      if (todo.id === id) todo.completed = !todo.completed;
-      return todo;
     });
   }
 
