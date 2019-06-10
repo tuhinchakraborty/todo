@@ -12,8 +12,8 @@ class ToDo extends Component {
           id="outlined-bare"
           placeholder={this.props.content.text}
           margin="normal"
-          variant="outlined"
-          style={this.props.content.completed ? { fontStyle: 'italic' } : { width: '75%' }}
+          variant={this.props.content.completed ? 'standard' : 'outlined'}
+          style={{ width: '50%' }}
         />
       </div>
     );
