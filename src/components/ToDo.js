@@ -7,7 +7,14 @@ class ToDo extends Component {
     return (
       <div style={{ display: 'flex', flexWrap: 'wrap', flexDirection: 'row', justifyContent: 'center' }}>
         <Checkbox color="primary" checked={this.props.content.completed} onChange={() => this.props.handleChange(this.props.content.id)} />
-        <TextField id="outlined-bare" placeholder={this.props.content.text} margin="normal" variant="outlined" style = {{width: '90%'}}/>
+
+        <TextField
+          id="outlined-bare"
+          placeholder={this.props.content.text}
+          margin="normal"
+          variant="outlined"
+          style={this.props.content.completed ? { fontStyle: 'italic' } : { width: '75%' }}
+        />
       </div>
     );
   }
