@@ -3,7 +3,6 @@ import './../styles.css';
 import ToDo from './ToDo';
 import { AppBar, Toolbar, Typography, Fab } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
-import todosData from '../todosData';
 
 const addButtonStyle = {
   margin: 0,
@@ -24,9 +23,19 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      todos: todosData
+      todos: []
     };
     this.handleChange = this.handleChange.bind(this);
+  }
+
+  componentDidMount() {
+    fetch('https://jsonplaceholder.typicode.com/todos?_start=0&_limit=5')
+      .then(response => response.json())
+      .then(data =>
+        this.setState({
+          todos: data
+        })
+      );
   }
 
   handleChange(id) {

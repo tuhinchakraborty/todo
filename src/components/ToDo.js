@@ -10,7 +10,7 @@ class ToDo extends Component {
 
         <TextField
           id="outlined-bare"
-          placeholder={this.props.content.text}
+          placeholder={this.props.content.title}
           margin="normal"
           variant={this.props.content.completed ? 'standard' : 'outlined'}
           style={{ width: '50%' }}
