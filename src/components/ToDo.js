@@ -9,10 +9,9 @@ class ToDo extends Component {
         <Checkbox color="primary" checked={this.props.content.completed} onChange={() => this.props.handleChange(this.props.content.id)} />
 
         <TextField
-          id="outlined-bare"
-          placeholder={this.props.content.title}
+          disabled={this.props.content.completed}
+          defaultValue={this.props.content.title}
           margin="normal"
-          variant={this.props.content.completed ? 'standard' : 'outlined'}
           style={{ width: '50%' }}
         />
       </div>
