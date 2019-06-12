@@ -26,6 +26,7 @@ class App extends Component {
       todos: []
     };
     this.handleChange = this.handleChange.bind(this);
+    this.addTodo = this.addTodo.bind(this);
   }
 
   componentDidMount() {
@@ -52,6 +53,17 @@ class App extends Component {
     });
   }
 
+  addTodo() {
+    this.state.todos.push({
+      id: this.state.todos[this.state.todos.length - 1].id + 1,
+      title: '',
+      completed: false
+    });
+    this.setState({
+      todos: this.state.todos
+    });
+  }
+
   render() {
     const todos = this.state.todos.map(content => <ToDo key={content.id} content={content} handleChange={this.handleChange} />);
 
@@ -65,7 +77,7 @@ class App extends Component {
           </Toolbar>
         </AppBar>
         {todos}
-        <Fab style={addButtonStyle}>
+        <Fab onClick={this.addTodo} style={addButtonStyle}>
           <AddIcon />
         </Fab>
       </div>
