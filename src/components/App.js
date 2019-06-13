@@ -1,23 +1,6 @@
 import React, { Component } from 'react';
 import './../styles.css';
-import ToDo from './ToDo';
-import { AppBar, Toolbar, Typography, Fab } from '@material-ui/core';
-import AddIcon from '@material-ui/icons/Add';
-
-const addButtonStyle = {
-  margin: 0,
-  top: 'auto',
-  right: 20,
-  bottom: 20,
-  left: 'auto',
-  position: 'fixed',
-  backgroundColor: '#424242',
-  color: '#fafafa'
-};
-
-const appbarStyle = {
-  backgroundColor: '#424242'
-};
+import AppComponent from './AppComponent';
 
 class App extends Component {
   constructor() {
@@ -65,22 +48,8 @@ class App extends Component {
   }
 
   render() {
-    const todos = this.state.todos.map(content => <ToDo key={content.id} content={content} handleChange={this.handleChange} />);
-
     return (
-      <div>
-        <AppBar style={appbarStyle} position="static">
-          <Toolbar variant="dense" style={{ justifyContent: 'center' }}>
-            <Typography color="inherit" variant="title">
-              ToDo
-            </Typography>
-          </Toolbar>
-        </AppBar>
-        {todos}
-        <Fab onClick={this.addTodo} style={addButtonStyle}>
-          <AddIcon />
-        </Fab>
-      </div>
+      <AppComponent data={this.state} handleChange={this.handleChange} addTodo={this.addTodo} />
     );
   }
 }
