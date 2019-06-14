@@ -6,14 +6,18 @@ class ToDo extends Component {
   render() {
     return (
       <div style={{ display: 'flex', flexWrap: 'wrap', flexDirection: 'row', justifyContent: 'center' }}>
-        <Checkbox color="primary" checked={this.props.content.completed} onChange={() => this.props.handleChange(this.props.content.id)} />
+        <Checkbox
+          color="primary"
+          checked={this.props.content.completed}
+          onChange={event => this.props.handleChange(event, this.props.content.id)}
+        />
 
         <TextField
           disabled={this.props.content.completed}
           value={this.props.content.title}
           margin="normal"
           style={{ width: '50%' }}
-          onChange={event => this.props.handleTextChange(event, this.props.content.id)}
+          onChange={event => this.props.handleChange(event, this.props.content.id)}
         />
       </div>
     );

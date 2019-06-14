@@ -17,26 +17,17 @@ class App extends Component {
       );
   }
 
-  handleChange = id => {
-    this.setState(prevState => {
-      const updatedTodos = prevState.todos.map(todo => {
-        if (todo.id === id) {
-          if (todo.title) todo.completed = !todo.completed;
-        }
-        return todo;
-      });
-      return {
-        todos: updatedTodos
-      };
-    });
-  };
-
-  handleTextChange = (event, id) => {
+  handleChange = (event, id) => {
     let target = event.target;
     this.setState(prevState => {
       const updatedTodos = prevState.todos.map(todo => {
         if (todo.id === id) {
-          todo.title = target.value;
+          if (target.type === 'checkbox') {
+            if (todo.title) todo.completed = !todo.completed;
+          }
+          if (target.type === 'text') {
+            todo.title = target.value;
+          }
         }
         return todo;
       });
@@ -58,9 +49,7 @@ class App extends Component {
   };
 
   render() {
-    return (
-      <AppComponent data={this.state} handleChange={this.handleChange} addTodo={this.addTodo} handleTextChange={this.handleTextChange} />
-    );
+    return <AppComponent data={this.state} handleChange={this.handleChange} addTodo={this.addTodo} />;
   }
 }
 

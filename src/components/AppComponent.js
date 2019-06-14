@@ -20,9 +20,8 @@ const appbarStyle = {
 
 class AppComponent extends Component {
   render() {
-    const todos = this.props.data.todos.map(content => (
-      <ToDo key={content.id} content={content} handleChange={this.props.handleChange} handleTextChange={this.props.handleTextChange} />
-    ));
+    const todos = this.props.data.todos.map(content => <ToDo key={content.id} content={content} handleChange={this.props.handleChange} />);
+
     return (
       <div>
         <AppBar style={appbarStyle} position="static">
