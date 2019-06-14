@@ -13,7 +13,7 @@ class ToDo extends Component {
           value={this.props.content.title}
           margin="normal"
           style={{ width: '50%' }}
-          onChange={(event, id) => this.props.handleTextChange(event, this.props.content.id)}
+          onChange={event => this.props.handleTextChange(event, this.props.content.id)}
         />
       </div>
     );
