@@ -10,9 +10,10 @@ class ToDo extends Component {
 
         <TextField
           disabled={this.props.content.completed}
-          defaultValue={this.props.content.title}
+          value={this.props.content.title}
           margin="normal"
           style={{ width: '50%' }}
+          onChange={(event, id) => this.props.handleTextChange(event, this.props.content.id)}
         />
       </div>
     );

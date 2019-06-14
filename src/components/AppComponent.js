@@ -21,7 +21,7 @@ const appbarStyle = {
 class AppComponent extends Component {
   render() {
     const todos = this.props.data.todos.map(content => (
-      <ToDo key={content.id} content={content} handleChange={this.props.handleChange} addTodo={this.props.addTodo} />
+      <ToDo key={content.id} content={content} handleChange={this.props.handleChange} handleTextChange={this.props.handleTextChange} />
     ));
     return (
       <div>
