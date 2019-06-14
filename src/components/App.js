@@ -3,14 +3,7 @@ import './../styles.css';
 import AppComponent from './AppComponent';
 
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      todos: []
-    };
-    this.handleChange = this.handleChange.bind(this);
-    this.addTodo = this.addTodo.bind(this);
-  }
+  state = { todos: [] };
 
   componentDidMount() {
     fetch('https://jsonplaceholder.typicode.com/todos?_start=0&_limit=5')
@@ -22,7 +15,7 @@ class App extends Component {
       );
   }
 
-  handleChange(id) {
+  handleChange = id => {
     this.setState(prevState => {
       const updatedTodos = prevState.todos.map(todo => {
         if (todo.id === id) {
@@ -34,9 +27,9 @@ class App extends Component {
         todos: updatedTodos
       };
     });
-  }
+  };
 
-  addTodo() {
+  addTodo = () => {
     this.state.todos.push({
       id: this.state.todos[this.state.todos.length - 1].id + 1,
       title: '',
@@ -45,12 +38,10 @@ class App extends Component {
     this.setState({
       todos: this.state.todos
     });
-  }
+  };
 
   render() {
-    return (
-      <AppComponent data={this.state} handleChange={this.handleChange} addTodo={this.addTodo} />
-    );
+    return <AppComponent data={this.state} handleChange={this.handleChange} addTodo={this.addTodo} />;
   }
 }
 
