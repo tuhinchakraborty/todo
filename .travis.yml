@@ -1,10 +1,12 @@
 language: node_js
 node_js:
-  - "stable"
-cache: npm
+  - 'stable'
+cache:
+  directories:
+    - node_modules
 script:
- - npm install
- - npm run build
+  - npm install
+  - npm run build
 deploy:
   skip_cleanup: true
   provider: firebase
